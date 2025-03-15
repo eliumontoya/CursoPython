@@ -34,8 +34,6 @@ El programa debe mostrar la tabla de Pitágoras, así como el resultado de la mu
 '''
 LIMITE = 11
 
-def lista(step):
-    return list (range(1*step,LIMITE*step, step))
 
 def printHeaderRow(): 
     print ("".join("-"  + "\t" for y in range(LIMITE) )+"\n")
@@ -57,21 +55,6 @@ def imprimir(m):
     for renglon in m:                
         print ( imprimirCol(i, renglon) )
         i += 1
-
-m = []
-for i in range (1,LIMITE):
-    m.append(lista(i))
-
-imprimir(m)
-
-
-
-
-
-def listaRec(n,step):
-    if step < LIMITE-1:
-        n[step] = listaRec(n,step+1)        
-    return list (range(1*step,LIMITE*step, step) )
 
 def hacerValidaciones(x,y):
     if x >= LIMITE or y >= LIMITE:
@@ -105,7 +88,31 @@ def obtenerResultado(n,x,y):
 
 
 
-print("\n\n")
+def lista(step):
+    return list (range(1*step,LIMITE*step, step))
+'''
+Ejemplo haciendolo con loop
+'''
+m = []
+for i in range (1,LIMITE):
+    m.append(lista(i))
+
+#imprimir(m)
+
+
+
+
+
+def listaRec(n,step):
+    if step < LIMITE-1:
+        n[step] = listaRec(n,step+1)        
+    return list (range(1*step,LIMITE*step, step) )
+
+
+'''
+Ejemplo haciendolo recursivo
+'''
+print("\nRECURSIVAMENTE\n\n")
 
 
 n = list(range(LIMITE-1))
